@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.1.0"
+version       = "0.1.2"
 author        = "Judah Caruso Rodriguez"
 description   = "Stores and keeps track of your recordings"
 license       = "MIT"

@@ -20,16 +20,16 @@ proc checkArguments*() =
         else: 
             add(largs, paramStr(arg))
     
-    if largs.len() < 3:
+    if largs.len() < 4:
         printError("Invalid number of arguments!")
-    elif largs.len() == 3: 
+    elif largs.len() == 4: 
         add(largs, "-")
 
-    storeRecording((name: largs[0], start: largs[1], finish: largs[2], notes: largs[3]))
+    storeRecording((name: largs[0], file: largs[1], start: largs[2], finish: largs[3], notes: largs[4]))
 
 proc storeRecording(recording: tuple) = 
-    var headers = "Game,Start,End,Notes"
-    var newRow = "\n$1,$2,$3,$4" % [recording[0], recording[1], recording[2], recording[3]]
+    var headers = "Game,File,Start,End,Notes"
+    var newRow = "\n$1,$2,$3,$4,$5" % [recording[0], recording[1], recording[2], recording[3], recording[4]]
     
     var parser: CsvParser
     
@@ -63,11 +63,12 @@ proc listToday*() =
             parser.open(dayFile)
             parser.readHeaderRow()
             while parser.readRow():
-                echo "$1, $2, $3, $4" % 
+                echo "$1, $2, $3, $4, $5" % 
                     [parser.rowEntry(parser.headers[0]), 
                     parser.rowEntry(parser.headers[1]), 
                     parser.rowEntry(parser.headers[2]), 
-                    parser.rowEntry(parser.headers[3])]
+                    parser.rowEntry(parser.headers[3]),
+                    parser.rowEntry(parser.headers[4])]
         except IOError:
             printError("Couldn't open file '$1'! Do you have the correct permissions?" % [dayFile])
         except:
