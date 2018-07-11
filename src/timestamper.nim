@@ -4,7 +4,7 @@ import
   "timestamperpkg/parse",
   "timestamperpkg/syschecks"
 
-const pkg* = (name: "Timestamper", version: "0.1.2", flavor: "Dio!")
+const pkg* = (name: "Timestamper", version: "0.1.3", flavor: "Dio!")
 const help = """
 $1 $2 ($3)
 
