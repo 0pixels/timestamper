@@ -32,3 +32,8 @@ The command `new|add` takes the following fields:
 2. `timestamper add "Deadspace 2" ds2-20.wav - - -`
 
 *Note: Any unused fields should be replaced with the '-' character* 
+
+
+# Closing
+
+If you use Timestamper to track your sessions, let me know how I can improve it!
