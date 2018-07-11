@@ -1,7 +1,8 @@
 import
   os, strutils,
   "timestamperpkg/errors",
-  "timestamperpkg/parse"
+  "timestamperpkg/parse",
+  "timestamperpkg/syschecks"
 
 const pkg* = (name: "Timestamper", version: "0.1.2", flavor: "Dio!")
 const help = """
@@ -27,6 +28,8 @@ Examples:
 proc main() =
   if paramCount() <= 0:
     echo help; quit(-1)
+
+  if storageDirExists(): discard
 
   case normalize(paramStr(1)):
     of "help":
